@@ -1,0 +1,138 @@
+:root {
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --page: #f4f7fb;
+    --card: #ffffff;
+    --text: #1f2937;
+    --muted: #6b7280;
+    --border: #dbe3ef;
+    --danger: #dc2626;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 24px;
+    background: var(--page);
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+    color: #111827;
+    line-height: 1.25;
+}
+
+h1 {
+    margin-top: 0;
+    font-size: 2.2rem;
+}
+
+h2 {
+    margin-top: 36px;
+}
+
+a {
+    color: var(--primary);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+form {
+    max-width: 650px;
+    padding: 28px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(31, 41, 55, 0.08);
+}
+
+label {
+    font-weight: bold;
+}
+
+input,
+textarea {
+    width: 100%;
+    margin-top: 6px;
+    padding: 12px;
+    border: 1px solid #b8c4d4;
+    border-radius: 7px;
+    font: inherit;
+}
+
+textarea {
+    resize: vertical;
+}
+
+input:focus,
+textarea:focus {
+    border-color: var(--primary);
+    outline: 3px solid rgba(37, 99, 235, 0.15);
+}
+
+button {
+    padding: 11px 18px;
+    background: var(--primary);
+    border: none;
+    border-radius: 7px;
+    color: white;
+    font: inherit;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: var(--primary-dark);
+}
+
+article {
+    margin: 20px 0;
+    padding: 24px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(31, 41, 55, 0.06);
+}
+
+article h3 {
+    margin-top: 0;
+}
+
+article p:nth-of-type(1) {
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+hr {
+    margin: 28px 0;
+    border: none;
+    border-top: 1px solid var(--border);
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 24px 16px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    form,
+    article {
+        padding: 20px;
+    }
+}

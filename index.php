@@ -17,6 +17,7 @@ $posts = $conn->query($sql);
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
     <title>My Blog App</title>
 </head>
 <body>

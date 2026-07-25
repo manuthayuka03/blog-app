@@ -32,6 +32,7 @@ if (!$post) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
     <title><?php echo htmlspecialchars($post["title"]); ?> | My Blog App</title>
 </head>
 <body>
