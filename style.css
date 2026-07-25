@@ -136,3 +136,9 @@ hr {
         padding: 20px;
     }
 }
+
+.character-counter {
+    margin-top: 6px;
+    color: var(--muted);
+    font-size: 0.9rem;
+}

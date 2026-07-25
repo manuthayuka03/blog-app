@@ -33,6 +33,7 @@ if (!$post) {
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
     <title><?php echo htmlspecialchars($post["title"]); ?> | My Blog App</title>
 </head>
 <body>
@@ -64,14 +65,10 @@ if (!$post) {
         </a>
     </p>
 
-    <form
-        method="POST"
-        action="delete_post.php"
-        onsubmit="return confirm('Are you sure you want to delete this post?');"
-    >
-        <input type="hidden" name="id" value="<?php echo $post["id"]; ?>">
-        <button type="submit">Delete this post</button>
-    </form>
+    <form id="delete-form" method="POST" action="delete_post.php">
+    <input type="hidden" name="id" value="<?php echo $post["id"]; ?>">
+    <button type="submit">Delete this post</button>
+</form>
 <?php endif; ?>
     </article>
 </body>
