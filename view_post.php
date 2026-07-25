@@ -50,6 +50,28 @@ if (!$post) {
         <p>
             <?php echo nl2br(htmlspecialchars($post["content"])); ?>
         </p>
+
+        <?php if (
+    isset($_SESSION["user_id"]) &&
+    (int) $_SESSION["user_id"] === (int) $post["user_id"]
+): ?>
+    <hr>
+
+    <p>
+        <a href="edit_post.php?id=<?php echo $post["id"]; ?>">
+            Edit this post
+        </a>
+    </p>
+
+    <form
+        method="POST"
+        action="delete_post.php"
+        onsubmit="return confirm('Are you sure you want to delete this post?');"
+    >
+        <input type="hidden" name="id" value="<?php echo $post["id"]; ?>">
+        <button type="submit">Delete this post</button>
+    </form>
+<?php endif; ?>
     </article>
 </body>
 </html>
