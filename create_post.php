@@ -22,10 +22,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (empty($errors)) {
         $userId = $_SESSION["user_id"];
 
-        $statement = $conn->prepare(
-            "INSERT INTO blog_posts (user_id, title, content) VALUES (?, ?, ?)"
-        );
-        $statement->bind_param("iss", $userId, $title, $content);
+        date_default_timezone_set("Asia/Colombo");
+
+$createdAt = date("Y-m-d H:i:s");
+
+$statement = $conn->prepare(
+    "INSERT INTO blog_posts (user_id, title, content, created_at) VALUES (?, ?, ?, ?)"
+);
+
+$statement->bind_param("isss", $userId, $title, $content, $createdAt);
 
         if ($statement->execute()) {
             header("Location: index.php?message=created");

@@ -42,20 +42,25 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 
     if (empty($errors)) {
-        $update = $conn->prepare(
-            "UPDATE blog_posts
-             SET title = ?, content = ?
-             WHERE id = ? AND user_id = ?"
-        );
-        $update->bind_param("ssii", $title, $content, $postId, $userId);
 
-        if ($update->execute()) {
-            header("Location: view_post.php?id=" . $postId . "&message=updated");
-            exit;
-        } else {
-            $errors[] = "The post could not be updated.";
-        }
+    date_default_timezone_set("Asia/Colombo");
+    $updatedAt = date("Y-m-d H:i:s");
+
+    $update = $conn->prepare(
+        "UPDATE blog_posts
+         SET title = ?, content = ?, updated_at = ?
+         WHERE id = ? AND user_id = ?"
+    );
+
+    $update->bind_param("sssii", $title, $content, $updatedAt, $postId, $userId);
+
+    if ($update->execute()) {
+        header("Location: view_post.php?id=" . $postId . "&message=updated");
+        exit;
+    } else {
+        $errors[] = "The post could not be updated.";
     }
+}
 }
 ?>
 

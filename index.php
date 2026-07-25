@@ -24,9 +24,12 @@ $posts = $conn->query($sql);
     <h1>My Blog Application</h1>
 
     <?php if (isset($_GET["message"]) && $_GET["message"] === "created"): ?>
-        <p style="color: green;">Your blog post was published.</p>
-    <?php endif; ?>
-
+    <p style="color: green;">Your blog post was published.</p>
+<?php elseif (isset($_GET["message"]) && $_GET["message"] === "updated"): ?>
+    <p style="color: green;">Your blog post was updated.</p>
+<?php elseif (isset($_GET["message"]) && $_GET["message"] === "deleted"): ?>
+    <p style="color: green;">Your blog post was deleted.</p>
+<?php endif; ?>
     <?php if (isset($_SESSION["user_id"])): ?>
         <p>
             You are logged in as
@@ -58,11 +61,14 @@ $posts = $conn->query($sql);
         <?php echo htmlspecialchars($post["title"]); ?>
     </a>
 </h3>
+<?php
+    $date = new DateTime($post["created_at"]);
+?>
 
-                <p>
-                    By <?php echo htmlspecialchars($post["username"]); ?>
-                    on <?php echo htmlspecialchars($post["created_at"]); ?>
-                </p>
+<p>
+    By <?php echo htmlspecialchars($post["username"]); ?>
+    on <?php echo $date->format("F j, Y"); ?>
+</p>
 
                 <p>
                     <?php echo nl2br(htmlspecialchars($post["content"])); ?>

@@ -1,8 +1,8 @@
 <?php
-$host = "localhost";
-$dbname = "blog_app_db";
-$dbuser = "root";
-$dbpass = "";
+$host = "sql202.infinityfree.com";
+$dbname = "if0_42490168_blogdb";
+$dbuser = "if0_42490168";
+$dbpass = "LxraCvVxg0Q";
 
 $conn = new mysqli($host, $dbuser, $dbpass, $dbname);
 

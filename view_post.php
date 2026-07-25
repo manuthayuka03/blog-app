@@ -40,36 +40,48 @@ if (!$post) {
     <p><a href="index.php">← Back to all posts</a></p>
 
     <article>
-        <h1><?php echo htmlspecialchars($post["title"]); ?></h1>
+    <h1><?php echo htmlspecialchars($post["title"]); ?></h1>
 
-        <p>
-            By <strong><?php echo htmlspecialchars($post["username"]); ?></strong>
-            on <?php echo htmlspecialchars($post["created_at"]); ?>
-        </p>
+    <?php
+    $createdDate = new DateTime($post["created_at"]);
+    $updatedDate = new DateTime($post["updated_at"]);
+    ?>
+
+    <p>
+        By <strong><?php echo htmlspecialchars($post["username"]); ?></strong>
+        on <?php echo $createdDate->format("F j, Y"); ?>
+    </p>
+
+    <p>
+        <em>Last updated: <?php echo $updatedDate->format("F j, Y"); ?></em>
+    </p>
+
+    <hr>
+
+    <p>
+        <?php echo nl2br(htmlspecialchars($post["content"])); ?>
+    </p>
+
+    <?php if (
+        isset($_SESSION["user_id"]) &&
+        (int) $_SESSION["user_id"] === (int) $post["user_id"]
+    ): ?>
 
         <hr>
 
         <p>
-            <?php echo nl2br(htmlspecialchars($post["content"])); ?>
+            <a href="edit_post.php?id=<?php echo $post["id"]; ?>">
+                Edit this post
+            </a>
         </p>
 
-        <?php if (
-    isset($_SESSION["user_id"]) &&
-    (int) $_SESSION["user_id"] === (int) $post["user_id"]
-): ?>
-    <hr>
+        <form id="delete-form" method="POST" action="delete_post.php">
+            <input type="hidden" name="id" value="<?php echo $post["id"]; ?>">
+            <button type="submit">Delete this post</button>
+        </form>
 
-    <p>
-        <a href="edit_post.php?id=<?php echo $post["id"]; ?>">
-            Edit this post
-        </a>
-    </p>
+    <?php endif; ?>
 
-    <form id="delete-form" method="POST" action="delete_post.php">
-    <input type="hidden" name="id" value="<?php echo $post["id"]; ?>">
-    <button type="submit">Delete this post</button>
-</form>
-<?php endif; ?>
-    </article>
+</article>
 </body>
 </html>
