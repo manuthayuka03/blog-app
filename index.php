@@ -52,7 +52,11 @@ $posts = $conn->query($sql);
     <?php else: ?>
         <?php while ($post = $posts->fetch_assoc()): ?>
             <article>
-                <h3><?php echo htmlspecialchars($post["title"]); ?></h3>
+                <h3>
+    <a href="view_post.php?id=<?php echo $post["id"]; ?>">
+        <?php echo htmlspecialchars($post["title"]); ?>
+    </a>
+</h3>
 
                 <p>
                     By <?php echo htmlspecialchars($post["username"]); ?>
