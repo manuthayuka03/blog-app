@@ -1,15 +1,28 @@
+/* =========================================
+   GLOBAL VARIABLES
+========================================= */
+
 :root {
     --primary: #2563eb;
     --primary-dark: #1d4ed8;
-    --page: #f6f8fc;
+
+    --page: #f5f7fb;
     --card: #ffffff;
+
     --text: #1f2937;
     --heading: #111827;
     --muted: #6b7280;
-    --border: #e5e7eb;
-    --danger: #dc2626;
-    --success: #16a34a;
+
+    --border: #e2e8f0;
+
+    --success-bg: #ecfdf5;
+    --success-text: #047857;
 }
+
+
+/* =========================================
+   RESET
+========================================= */
 
 * {
     box-sizing: border-box;
@@ -21,290 +34,598 @@ html {
 
 body {
     max-width: 950px;
+
     margin: 0 auto;
+
     padding: 32px 24px 60px;
+
     background: var(--page);
+
     color: var(--text);
-    font-family: Arial, Helvetica, sans-serif;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
     line-height: 1.7;
 }
 
-/* Headings */
+
+/* =========================================
+   HEADINGS
+========================================= */
 
 h1,
 h2,
 h3 {
     color: var(--heading);
+
     line-height: 1.25;
 }
 
 h1 {
-    margin-top: 0;
-    margin-bottom: 12px;
-    font-size: 2.4rem;
+    margin: 0;
+
+    font-size: 2rem;
+
     letter-spacing: -0.5px;
 }
 
 h2 {
-    margin-top: 40px;
-    margin-bottom: 20px;
-    font-size: 1.7rem;
+    margin: 0;
+
+    font-size: 1.8rem;
 }
 
 h3 {
-    font-size: 1.35rem;
+    margin: 0;
 }
 
-/* Links */
+
+/* =========================================
+   LINKS
+========================================= */
 
 a {
     color: var(--primary);
+
     font-weight: 600;
+
     text-decoration: none;
+
     transition: color 0.2s ease;
 }
 
 a:hover {
     color: var(--primary-dark);
-}
 
-/* Navigation-style links near top */
-
-body > p a {
-    transition: all 0.2s ease;
-}
-
-/* Blog articles */
-
-article {
-    margin: 22px 0;
-    padding: 26px 28px;
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    box-shadow: 0 4px 14px rgba(31, 41, 55, 0.05);
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease,
-        border-color 0.2s ease;
-}
-
-article:hover {
-    transform: translateY(-3px);
-    border-color: #cbd5e1;
-    box-shadow: 0 10px 25px rgba(31, 41, 55, 0.09);
-}
-
-article h3 {
-    margin-top: 0;
-    margin-bottom: 8px;
-}
-
-article h3 a {
-    color: var(--heading);
-    font-size: 1.35rem;
-}
-
-article h3 a:hover {
-    color: var(--primary);
     text-decoration: none;
 }
 
-/* Author and date */
 
-article p:first-of-type {
-    margin-top: 8px;
+/* =========================================
+   HEADER
+========================================= */
+
+.site-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 20px 0 25px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+
+/* Brand */
+
+.brand h1 {
+    margin: 0;
+
+    font-size: 2.1rem;
+
+    letter-spacing: -0.7px;
+}
+
+.brand p {
+    margin: 4px 0 0;
+
     color: var(--muted);
+
     font-size: 0.9rem;
 }
 
-/* Blog content */
 
-article p {
-    margin-bottom: 14px;
+/* Navigation */
+
+.main-nav {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    flex-wrap: wrap;
 }
 
-/* Horizontal line */
-
-hr {
-    margin: 30px 0;
-    border: none;
-    border-top: 1px solid var(--border);
+.main-nav a {
+    font-size: 0.95rem;
 }
 
-/* Forms */
+.welcome {
+    color: var(--muted);
 
-form {
-    max-width: 680px;
-    margin: 25px 0;
-    padding: 30px;
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    box-shadow: 0 5px 18px rgba(31, 41, 55, 0.06);
+    font-size: 0.9rem;
 }
 
-label {
+.welcome strong {
+    color: var(--text);
+}
+
+
+/* =========================================
+   BUTTON
+========================================= */
+
+.nav-button {
+
     display: inline-block;
-    margin-bottom: 5px;
-    color: var(--heading);
+
+    padding: 9px 16px;
+
+    background: var(--primary);
+
+    color: white !important;
+
+    border-radius: 8px;
+
+    font-size: 0.9rem;
+
+    font-weight: 600;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.nav-button:hover {
+
+    background: var(--primary-dark);
+
+    color: white;
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================
+   SUCCESS MESSAGE
+========================================= */
+
+.success-message {
+
+    margin-top: 24px;
+
+    padding: 12px 16px;
+
+    background: var(--success-bg);
+
+    border: 1px solid #a7f3d0;
+
+    border-radius: 8px;
+
+    color: var(--success-text);
+
+    font-size: 0.92rem;
+
     font-weight: 600;
 }
 
-/* Inputs */
 
-input,
-textarea {
-    width: 100%;
-    margin-top: 6px;
-    padding: 13px 14px;
-    border: 1px solid #cbd5e1;
-    border-radius: 9px;
-    background: #ffffff;
-    color: var(--text);
-    font: inherit;
+/* =========================================
+   MAIN SECTION
+========================================= */
+
+main {
+    margin-top: 40px;
+}
+
+
+/* Section heading */
+
+.section-heading {
+    margin-bottom: 24px;
+}
+
+.section-heading h2 {
+    margin-bottom: 5px;
+}
+
+.section-heading p {
+    margin: 0;
+
+    color: var(--muted);
+
+    font-size: 0.95rem;
+}
+
+
+/* =========================================
+   BLOG CARD
+========================================= */
+
+.blog-card {
+
+    margin: 20px 0;
+
+    padding: 26px 28px;
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 3px 10px rgba(31, 41, 55, 0.04);
+
     transition:
-        border-color 0.2s ease,
+        transform 0.2s ease,
         box-shadow 0.2s ease;
 }
 
-input::placeholder,
-textarea::placeholder {
+
+/* Card hover */
+
+.blog-card:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 22px rgba(31, 41, 55, 0.08);
+}
+
+
+/* Blog title */
+
+.blog-card h3 {
+
+    margin-bottom: 8px;
+}
+
+.blog-card h3 a {
+
+    color: var(--heading);
+
+    font-size: 1.3rem;
+
+    font-weight: 700;
+}
+
+.blog-card h3 a:hover {
+
+    color: var(--primary);
+}
+
+
+/* =========================================
+   POST META
+========================================= */
+
+.post-meta {
+
+    margin: 0 0 18px;
+
+    color: var(--muted);
+
+    font-size: 0.88rem;
+}
+
+.post-meta strong {
+
+    color: #4b5563;
+}
+
+.dot {
+
+    padding: 0 6px;
+
     color: #9ca3af;
 }
 
+
+/* =========================================
+   POST CONTENT
+========================================= */
+
+.post-content {
+
+    margin: 0 0 18px;
+
+    color: #374151;
+
+    font-size: 0.97rem;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   READ MORE
+========================================= */
+
+.read-more {
+
+    display: inline-block;
+
+    font-size: 0.9rem;
+
+    font-weight: 600;
+}
+
+.read-more:hover {
+
+    text-decoration: underline;
+}
+
+
+/* =========================================
+   EMPTY STATE
+========================================= */
+
+.empty-state {
+
+    padding: 45px 30px;
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 14px;
+
+    text-align: center;
+}
+
+.empty-state h3 {
+
+    margin-bottom: 8px;
+
+    font-size: 1.2rem;
+}
+
+.empty-state p {
+
+    margin-bottom: 20px;
+
+    color: var(--muted);
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+
+    margin-top: 55px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid var(--border);
+
+    text-align: center;
+}
+
+footer p {
+
+    margin: 0;
+
+    color: var(--muted);
+
+    font-size: 0.85rem;
+}
+
+
+/* =========================================
+   FORMS
+========================================= */
+
+form {
+
+    max-width: 650px;
+
+    padding: 28px;
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 4px 16px rgba(31, 41, 55, 0.06);
+}
+
+label {
+
+    font-weight: bold;
+}
+
+input,
 textarea {
-    min-height: 220px;
+
+    width: 100%;
+
+    margin-top: 6px;
+
+    padding: 12px;
+
+    border: 1px solid #b8c4d4;
+
+    border-radius: 7px;
+
+    font: inherit;
+
+    background: white;
+}
+
+textarea {
+
     resize: vertical;
 }
 
 input:focus,
 textarea:focus {
+
     border-color: var(--primary);
-    outline: none;
-    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+
+    outline: 3px solid rgba(37, 99, 235, 0.15);
 }
 
-/* Buttons */
+
+/* =========================================
+   FORM BUTTON
+========================================= */
 
 button {
-    padding: 11px 20px;
+
+    padding: 11px 18px;
+
     background: var(--primary);
+
     border: none;
-    border-radius: 9px;
-    color: #ffffff;
+
+    border-radius: 7px;
+
+    color: white;
+
     font: inherit;
-    font-weight: 600;
+
+    font-weight: bold;
+
     cursor: pointer;
-    transition:
-        background 0.2s ease,
-        transform 0.15s ease,
-        box-shadow 0.2s ease;
+
+    transition: background 0.2s ease;
 }
 
 button:hover {
+
     background: var(--primary-dark);
-    transform: translateY(-1px);
-    box-shadow: 0 5px 12px rgba(37, 99, 235, 0.22);
 }
 
-button:active {
-    transform: translateY(0);
-}
 
-/* Delete button */
+/* =========================================
+   CHARACTER / WORD COUNTER
+========================================= */
 
-#delete-form button {
-    background: var(--danger);
-}
+.character-counter {
 
-#delete-form button:hover {
-    background: #b91c1c;
-    box-shadow: 0 5px 12px rgba(220, 38, 38, 0.2);
-}
+    margin-top: 6px;
 
-/* Character / Word counter */
-
-.character-counter,
-.word-counter {
-    margin-top: 7px;
-    margin-bottom: 14px;
     color: var(--muted);
-    font-size: 0.88rem;
+
+    font-size: 0.9rem;
 }
 
-/* Success messages */
 
-p[style*="green"] {
-    padding: 11px 14px;
-    border: 1px solid #bbf7d0;
-    border-radius: 9px;
-    background: #f0fdf4;
-    color: var(--success) !important;
+/* =========================================
+   HORIZONTAL LINE
+========================================= */
+
+hr {
+
+    margin: 28px 0;
+
+    border: none;
+
+    border-top: 1px solid var(--border);
 }
 
-/* Error messages */
 
-p[style*="red"] {
-    padding: 10px 14px;
-    border: 1px solid #fecaca;
-    border-radius: 9px;
-    background: #fef2f2;
-    color: var(--danger) !important;
-}
+/* =========================================
+   MOBILE RESPONSIVE
+========================================= */
 
-/* Login / user information */
+@media (max-width: 650px) {
 
-strong {
-    color: var(--heading);
-}
-
-/* Better spacing around paragraphs */
-
-body > p {
-    margin: 12px 0;
-}
-
-/* Mobile */
-
-@media (max-width: 600px) {
     body {
-        padding: 22px 15px 45px;
+
+        padding: 24px 16px 45px;
     }
 
-    h1 {
-        font-size: 1.9rem;
+
+    /* Header */
+
+    .site-header {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        padding-bottom: 20px;
     }
+
+
+    .brand h1 {
+
+        font-size: 1.8rem;
+    }
+
+
+    .main-nav {
+
+        width: 100%;
+
+        gap: 12px;
+    }
+
+
+    .welcome {
+
+        width: 100%;
+    }
+
+
+    /* Main */
+
+    main {
+
+        margin-top: 30px;
+    }
+
 
     h2 {
-        margin-top: 30px;
-        font-size: 1.45rem;
+
+        font-size: 1.5rem;
     }
 
-    article {
+
+    /* Cards */
+
+    .blog-card {
+
         padding: 21px;
-        border-radius: 13px;
     }
 
-    article h3 a {
-        font-size: 1.2rem;
+
+    .blog-card h3 a {
+
+        font-size: 1.15rem;
     }
+
+
+    /* Forms */
 
     form {
-        padding: 22px;
-        border-radius: 13px;
-    }
 
-    input,
-    textarea {
-        padding: 12px;
-    }
-
-    textarea {
-        min-height: 180px;
-    }
-
-    button {
-        width: 100%;
+        padding: 20px;
     }
 }
