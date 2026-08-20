@@ -2,7 +2,7 @@
 $host = "sql202.infinityfree.com";
 $dbname = "if0_42490168_blogdb";
 $dbuser = "if0_42490168";
-$dbpass = "LxraCvVxg0Q";
+$dbpass = "IS2120blogapp";
 
 $conn = new mysqli($host, $dbuser, $dbpass, $dbname);
 
